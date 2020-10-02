@@ -5,11 +5,105 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+const employees = [];
+
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const Choices = require("inquirer/lib/objects/choices");
+const { create } = require("domain");
 
+// const e = new Manager("Foo", 1, "test@test.com", 100);
+// const html = render([e])
+// console.log(html);
+
+function main() {
+    const questions = [
+
+        {
+            type: 'list',
+            message: "What kind of employee do you want to add?",
+            name: "typeofemployee",
+            choices: ["Manager", "Engineer", "Intern"]
+
+        },
+
+    ];
+
+    inquirer.prompt(questions).then(responses => {
+        console.log(responses);
+        if (responses.typeofemployee === "Manager"){
+            createManager();
+        } else if (responses.typeofemployee === "Engineer") {
+            // createEngineer();
+        } else {
+            // createIntern();
+        }
+
+    });
+}
+
+main();
+
+function createManager() {
+    const questions = [
+
+        {
+            type: 'input',
+            message: "What is your name?",
+            name: "name",
+
+        },
+        {
+            type: 'input',
+            message: "What is your name?",
+            name: "id",
+
+        },
+        {
+            type: 'input',
+            message: "What is your name?",
+            name: "email",
+
+        },
+        {
+            type: 'input',
+            message: "What is your name?",
+            name: "officenumber",
+
+        },
+
+    ];
+
+    inquirer.prompt(questions).then(response => {
+        const newManager = new Manager(response.name, response.id, response.email, response.officenumber);
+        employees.push(newManager);
+        continuer();
+    });
+}
+
+function continuer() {
+
+    const questions = [
+
+        {
+            type: 'confirm',
+            message: "Do you want to add another employee",
+            name: "another",
+        },
+
+    ];
+    inquirer.prompt(questions).then(responses => {
+        console.log(responses);
+        if (responses.another === true) {
+            main();
+        } else {
+            console.log(employees);
+            //render employees, write to file
+        }
+    });
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
