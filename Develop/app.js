@@ -14,10 +14,6 @@ const render = require("./lib/htmlRenderer");
 const Choices = require("inquirer/lib/objects/choices");
 const { create } = require("domain");
 
-// const e = new Manager("Foo", 1, "test@test.com", 100);
-// const html = render([e])
-// console.log(html);
-
 function main() {
     const questions = [
 
@@ -36,9 +32,9 @@ function main() {
         if (responses.typeofemployee === "Manager"){
             createManager();
         } else if (responses.typeofemployee === "Engineer") {
-            // createEngineer();
+            createEngineer();
         } else {
-            // createIntern();
+            createIntern();
         }
 
     });
@@ -57,19 +53,19 @@ function createManager() {
         },
         {
             type: 'input',
-            message: "What is your name?",
+            message: "What is your ID?",
             name: "id",
 
         },
         {
             type: 'input',
-            message: "What is your name?",
+            message: "What is your email?",
             name: "email",
 
         },
         {
             type: 'input',
-            message: "What is your name?",
+            message: "What is your office number?",
             name: "officenumber",
 
         },
@@ -79,6 +75,78 @@ function createManager() {
     inquirer.prompt(questions).then(response => {
         const newManager = new Manager(response.name, response.id, response.email, response.officenumber);
         employees.push(newManager);
+        continuer();
+    });
+}
+function createEngineer() {
+    const questions = [
+
+        {
+            type: 'input',
+            message: "What is your name?",
+            name: "name",
+
+        },
+        {
+            type: 'input',
+            message: "What is your ID?",
+            name: "id",
+
+        },
+        {
+            type: 'input',
+            message: "What is your email?",
+            name: "email",
+
+        },
+        {
+            type: 'input',
+            message: "What is your Github profile URL?",
+            name: "github",
+
+        },
+
+    ];
+
+    inquirer.prompt(questions).then(response => {
+        const newEngineer = new Engineer(response.name, response.id, response.email, response.github);
+        employees.push(newEngineer);
+        continuer();
+    });
+}
+function createIntern() {
+    const questions = [
+
+        {
+            type: 'input',
+            message: "What is your name?",
+            name: "name",
+
+        },
+        {
+            type: 'input',
+            message: "What is your ID?",
+            name: "id",
+
+        },
+        {
+            type: 'input',
+            message: "What is your email?",
+            name: "email",
+
+        },
+        {
+            type: 'input',
+            message: "What is the name of your school?",
+            name: "school",
+
+        },
+
+    ];
+
+    inquirer.prompt(questions).then(response => {
+        const newIntern = new Intern(response.name, response.id, response.email, response.school);
+        employees.push(newIntern);
         continuer();
     });
 }
@@ -100,10 +168,23 @@ function continuer() {
             main();
         } else {
             console.log(employees);
-            //render employees, write to file
+            createHTML();
+
         }
     });
-}
+};
+
+function createHTML() {
+    const htmlInfo = render(employees);
+    fs.writeFile(outputPath, htmlInfo, (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('HTML created');
+        }
+    });
+};
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
