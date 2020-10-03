@@ -11,3 +11,5 @@ I learned a lot more about Object-Oriented Programming, Node, and Jest.
 
 Generated HTML:
 ![project screenshot](Develop/images/screenshot2.png)
+
+Walkthrough video: https://drive.google.com/file/d/1G5aj6v3ihdUBxgwAur5i7TMV1Ihs4KLf/view?usp=sharing
