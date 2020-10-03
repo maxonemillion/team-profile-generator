@@ -183,4 +183,4 @@ function createHTML() {
             console.log('HTML created');
         }
     });
-};
+}; 
