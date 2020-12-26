@@ -10,5 +10,6 @@ Use this application when you need to add an employee to your program.   [Here](
 ![project screenshot](Develop/images/screenshot.png)
 
 Generated HTML:
+
 ![project screenshot](Develop/images/screenshot2.png)
 
