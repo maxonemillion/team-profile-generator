@@ -6,10 +6,10 @@ This is a Node CLI app that takes in information about employees and generates a
 ## USAGE
 Use this application when you need to add an employee to your program.   [Here](https://drive.google.com/file/d/1G5aj6v3ihdUBxgwAur5i7TMV1Ihs4KLf/view?usp=sharing "Link to video showing how to use this app") is a short video showing how to use this application.
 
-## RUN
+### RUN
 ![project screenshot](Develop/images/screenshot.png)
 
-Generated HTML:
+### Generated HTML:
 
 ![project screenshot](Develop/images/screenshot2.png)
 
