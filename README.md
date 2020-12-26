@@ -1,15 +1,14 @@
 # TEAM PROFILE GENERATOR
 
 ## PURPOSE
-The purpose of this assignment was to create a software engineering team generator command line application. The application prompts the user for information about the team manager and then information about the team members.
+This is a Node CLI app that takes in information about employees and generates an HTML webpage that displays summaries for each person. It prompts a user to input information about a team manager and then information about team members. The user can input any number of team members, and they may be a mix of engineers and interns. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user. 
 
-## WHAT I LEARNED
-I learned a lot more about Object-Oriented Programming, Node, and Jest.
+## USAGE
+Use this application when you need to add an employee to your program.   [Here](https://drive.google.com/file/d/1G5aj6v3ihdUBxgwAur5i7TMV1Ihs4KLf/view?usp=sharing "Link to video showing how to use this app") is a short video showing how to use this application.
 
-### RUN
+## RUN
 ![project screenshot](Develop/images/screenshot.png)
 
 Generated HTML:
 ![project screenshot](Develop/images/screenshot2.png)
 
-Walk-through video: https://drive.google.com/file/d/1G5aj6v3ihdUBxgwAur5i7TMV1Ihs4KLf/view?usp=sharing
